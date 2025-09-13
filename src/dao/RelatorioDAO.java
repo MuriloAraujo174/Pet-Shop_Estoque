@@ -11,8 +11,19 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.mysql.cj.Session;
+import com.mysql.cj.protocol.Message;
+import com.sun.jdi.connect.Transport;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.Properties;
+
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*; // Para anexos
+
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
 
 public class RelatorioDAO {
     private Conexao conex; // Class conexao vai ser usada posteriomente
@@ -83,6 +94,20 @@ public class RelatorioDAO {
         }
         return caminho;
 
+    }
+    
+    public void enviar() {
+        String remetente = "seuemail@gmail.com";
+        String senha = "sua-senha"; // usar App Password se for Gmail
+        String destinatario = "destinatario@gmail.com";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        
     }
     
 }
