@@ -1,16 +1,18 @@
 package dao;
 
-import beans.produtos;
 import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 public class RelatorioDAO {
     private Conexao conex; // Class conexao vai ser usada posteriomente
@@ -25,20 +27,62 @@ public class RelatorioDAO {
     
     public void listaProdutosRelatorio() {
     
-        try {
+         try {
             PreparedStatement st = this.conn.prepareStatement(sql);
-            
             ResultSet rs = st.executeQuery();
-            
-            while(rs.next()) {
-                
-                System.out.println(rs.getInt("nome") + " - " + rs.getString("quant_ent") + " - " + rs.getString("preco"));
-                
+
+            while (rs.next()) {
+                System.out.println(
+                        rs.getString("nome") + " - " +
+                        rs.getInt("quant_ent") + " - " +
+                        rs.getDouble("preco")
+                );
             }
-            
+            rs.close();
+            st.close();
         } catch (Exception e) {
+            e.printStackTrace();
         }
     
+    }
+    
+    public String geraPDF() throws FileNotFoundException, DocumentException {
+       String caminho = "C:\\Users\\anton\\Documents\\Relatorios\\relatorio.pdf";
+        try {
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(caminho));
+            document.open();
+
+            document.add(new Paragraph("Relatório de Produtos"));
+            document.add(new Paragraph(" "));
+
+            // Criar tabela com 3 colunas
+            PdfPTable tabela = new PdfPTable(3);
+            tabela.addCell("Nome");
+            tabela.addCell("Quantidade");
+            tabela.addCell("Preço");
+
+            PreparedStatement st = this.conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                tabela.addCell(rs.getString("nome"));
+                tabela.addCell(String.valueOf(rs.getInt("quant_ent")));
+                tabela.addCell(String.valueOf(rs.getDouble("preco")));
+            }
+
+            document.add(tabela);
+            document.close();
+
+            rs.close();
+            st.close();
+
+            System.out.println("PDF gerado em: " + caminho);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return caminho;
+
     }
     
 }
