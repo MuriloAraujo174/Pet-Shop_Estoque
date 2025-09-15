@@ -4,6 +4,8 @@
  */
 package forms;
 
+import dao.RelatorioDAO;
+
 /**
  *
  * @author anton
@@ -36,6 +38,11 @@ public class Relatorios extends javax.swing.JFrame {
         jLabel1.setText("Relatorios");
 
         relatorioEmail.setText("Envia relatorio por email");
+        relatorioEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relatorioEmailActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,6 +81,14 @@ public class Relatorios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void relatorioEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatorioEmailActionPerformed
+        RelatorioDAO relatorio = new RelatorioDAO();
+        
+        String arquivo = relatorio.geraPDF();
+        
+        relatorio.enviar(arquivo);
+    }//GEN-LAST:event_relatorioEmailActionPerformed
 
     /**
      * @param args the command line arguments
