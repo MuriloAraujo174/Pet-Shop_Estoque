@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/CadastroFornecedor.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/criptor/Criptografia.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/Relatorios.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/CadastroProdutos.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/EditarDadosFuncionarios.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/Estoque.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/CadastroUsuario.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/dao/DadosProduto.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/beans/Fornecedor.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/forms/Categorias.java</file>
+            <file>file:/C:/Users/anton/Documents/GitHub/Pet-Shop_Estoque/src/dao/DadosFornecedor.java</file>
+        </group>
     </open-files>
 </project-private>

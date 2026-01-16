@@ -167,7 +167,7 @@ public class UsuarioDAO {
             }
             
         } catch (SQLException ex) {
-             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
             return usuario;
@@ -176,7 +176,7 @@ public class UsuarioDAO {
     public static Usuario validarUsuarioSeguro(Usuario usuario) {
         String url = "jdbc:mysql://localhost/petshopestoque"; // colocr o caminho do seu banco de dados
         String user = "root"; // trocar para o seu usuario de acesso
-        String password = "113322"; // colocar sua senha de acesso
+        String password = ""; // colocar sua senha de acesso
     
         
         String sql = "select * from usuario where email = ? and senha = ?";

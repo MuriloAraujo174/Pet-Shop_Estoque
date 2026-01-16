@@ -29,9 +29,9 @@ public class Conexao {
             System.out.println("Conexao bem sucedida");
             return conn;
         } catch (SQLException ex) {
-            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-            return null;
+        Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null, ex.getMessage());
+        return null;
         }
     }
     
